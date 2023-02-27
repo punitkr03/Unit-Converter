@@ -106,37 +106,37 @@ int data()
     else if(choice_out==3)
     {
         printf("\nValue in Kilobytes.\n");
-        result=bits/8000;
+        result=bits/8192;
         printf("--> %f Kilobytes\n", result);
     }
     else if(choice_out==4)
     {
         printf("\nValue in Megabytes.\n");
-        result=bits/8000000;
+        result=bits/8388608;
         printf("--> %f Megabytes\n", result);
     }
     else if(choice_out==5)
     {
         printf("\nValue in Gigabytes.\n");
-        result=bits/8000000000;
+        result=bits/8589934592;
         printf("--> %f Gigabytes\n", result);
     }
     else if(choice_out==6)
     {
         printf("\nValue in Terabytes.\n");
-        result=bits/8000000000000;
+        result=bits/8796093022208;
         printf("--> %f Terabytes\n", result);
     }
     else if(choice_out==7)
     {
         printf("\nValue in Petabytes.\n");
-        result=bits/8000000000000000;
+        result=bits/9007199254740992;
         printf("--> %f Petabytes\n", result);
     }
     else if(choice_out==8)
     {
         printf("\nValue in Exabytes.\n");
-        result=bits/8000000000000000000;
+        result=bits/9223372036854775808;
         printf("--> %f Exabytes\n", result);
     }
 
