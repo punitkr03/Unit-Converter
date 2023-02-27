@@ -57,37 +57,37 @@ int data()
     {
         printf("\nEnter value in Kilobytes.\n--> ");
         scanf("%f", &user_in);
-        bits=user_in*8000;
+        bits=user_in*8192;
     }
     else if(choice_in==4)
     {
         printf("\nEnter value in Megabytes.\n--> ");
         scanf("%f", &user_in);
-        bits=user_in*8000000;
+        bits=user_in*8388608;
     }
     else if(choice_in==5)
     {
         printf("\nEnter value in Gigabytes.\n--> ");
         scanf("%f", &user_in);
-        bits=user_in*8000000000;
+        bits=user_in*8589934592;
     }
     else if(choice_in==6)
     {
         printf("\nEnter value in Terabytes.\n--> ");
         scanf("%f", &user_in);
-        bits=user_in*8000000000000;
+        bits=user_in*8796093022208;
     }
     else if(choice_in==7)
     {
         printf("\nEnter value in Petabytes.\n--> ");
         scanf("%f", &user_in);
-        bits=user_in*8000000000000000;
+        bits=user_in*9007199254740992;
     }
     else if(choice_in==8)
     {
         printf("\nEnter value in Exabytes.\n--> ");
         scanf("%f", &user_in);
-        bits=user_in*8000000000000000000;
+        bits=user_in*9223372036854775808;
     }
     
 /**********************OUTPUT PROCESSING*********************/
