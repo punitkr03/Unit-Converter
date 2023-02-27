@@ -87,7 +87,7 @@ int data()
     {
         printf("\nEnter value in Exabytes.\n--> ");
         scanf("%f", &user_in);
-        bits=user_in*9223372036854775808;
+        bits=user_in*9223372036854775808ull;
     }
     
 /**********************OUTPUT PROCESSING*********************/
@@ -136,7 +136,7 @@ int data()
     else if(choice_out==8)
     {
         printf("\nValue in Exabytes.\n");
-        result=bits/9223372036854775808;
+        result=bits/9223372036854775808ull;
         printf("--> %f Exabytes\n", result);
     }
 
