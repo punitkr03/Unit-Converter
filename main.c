@@ -26,18 +26,19 @@ int main()
 {
     //Variable declaration.
     int choice=0;
+    char temp;
 
     //UI Design.
-    printf("\n");
-    printf("************************************\n");
-    printf("***  WELCOME TO UNIT CONVERTER  ****\n");
-    printf("************************************\n\n");
+    master:
+    printf("\n***********************************");
+    printf("\n***  WELCOME TO UNIT CONVERTER  ***");
+    printf("\n***********************************\n");
 
     //Main program loop.
     while(1)
     {
         printf("\nChoose an option below to proceed.\n");
-        printf("1. Mass\n2. Length\n3. Area\n4. Data\n5. Temperature\n6. Time\n7. Volume\n8. Speed\n\t9. Exit\n\n--> ");
+        printf("1. Mass\t\t2. Length\n3. Area\t\t4. Data\n5. Temperature\t6. Time\n7. Volume\t8. Speed\n\t9. Exit\n\n--> ");
         scanf("%d", &choice);
 
         switch(choice)
@@ -55,7 +56,9 @@ int main()
                 //break;
 
             case 4:
-                data();
+                if(!data()){
+                goto master;
+                }
                 break;
 
             case 5:
@@ -75,12 +78,17 @@ int main()
                 //break;
 
             case 9:
-                printf("\nExiting program. Thank you for using!\n\n");
+            exiting:
+                printf("\nExiting program. Thank you for using!\n");
                 return 0;
 
             default:
-                printf("\nInvalid option selected. Try again.\n");
+                printf("\nInvalid option selected.\nTry again. y/n\n--> ");
+                scanf(" %c", &temp);
+                if(temp=='y')
                 break;
+                else
+                goto exiting;
         }
     }
 
@@ -102,15 +110,15 @@ int mass()
     //Variable declarations end.
 
     //UI Design.
-    printf("***************************\n");
-    printf("***   MASS CONVERSION   ***\n");
-    printf("***************************\n\n");
+    printf("\n***************************");
+    printf("\n***   MASS CONVERSION   ***");
+    printf("\n***************************\n");
 
     Options:   //Checkpoint for jump statement.
     printf("Choose input mass unit option.\n");
     printf("1. Milligrams \t 2. Grams\n3. Kilograms \t 4. Tons\n\t5. Go back\n\n--> ");
     scanf("%d", &choice_in);//Taking user input choice.
-    if(choice_in>5){
+    if(choice_in>5 || choice_in < 1){
     printf("Invalid choice. Try again?  y/n\n-->");
     scanf(" %c", &ch);
     if(ch=='y')
@@ -180,7 +188,7 @@ int mass()
     return 1;
 }
 
-//Mass conversion function.
+//Length conversion function.
 int length()
 {
     // Variable declarations
@@ -189,15 +197,15 @@ int length()
     float user_in, meters, result;
     
     // UI Design
-    printf("***************************\n");
-    printf("*** LENGTH CONVERSION  ***\n");
-    printf("***************************\n\n");
+    printf("\n***************************");
+    printf("\n*** LENGTH CONVERSION  ***");
+    printf("\n***************************\n");
     
     Options: // Checkpoint for jump statement
     printf("Choose input length unit option.\n");
     printf("1. Millimeters \t 2. Centimeters\n3. Meters \t 4. Kilometers\n\t5. Go back\n\n--> ");
     scanf("%d", &choice_in);
-    if(choice_in > 5)
+    if(choice_in > 5 || choice_in < 1)
     {
         printf("Invalid choice. Try again? y/n\n-->");
         scanf(" %c", &ch);
@@ -218,6 +226,15 @@ int length()
     printf("\nChoose output length unit option.\n");
     printf("1. Millimeters \t 2. Centimeters\n3. Meters \t 4. Kilometers\n\t5. Go back\n--> ");
     scanf("%d", &choice_out);
+
+    if (choice_out > 9 || choice_out < 1) {
+    printf("Invalid choice. Try again?  y/n\n--> ");
+    scanf(" %c", &ch);
+    if(ch=='y')
+    goto Options;
+    else
+    return 0;
+    }
     
     /********************** INPUT PROCESSING **********************/
     if(choice_in == 1)
@@ -291,15 +308,15 @@ int data()
     //Variable declarations end.
 
     //UI Design.
-    printf("***************************\n");
-    printf("***   DATA CONVERSION   ***\n");
-    printf("***************************\n\n");
+    printf("\n***************************");
+    printf("\n***   DATA CONVERSION   ***");
+    printf("\n***************************\n\n");
 
     Options:   //Checkpoint for jump statement.
     printf("Choose input data unit option.\n");
     printf("1. Bits \t 2. Bytes\n3. Kilobytes \t 4. Megabytes\n5. Gigabytes \t 6. Terabytes\n7. Petabytes \t 8. Exabytes\n\t9. Go back\n\n--> ");
     scanf("%d", &choice_in);//Taking user input choice.
-    if(choice_in>9){
+    if(choice_in>9 || choice_in < 1){
     printf("Invalid choice. Try again?  y/n\n-->");
     scanf(" %c", &ch);
     if(ch=='y')
@@ -313,6 +330,15 @@ int data()
     printf("\nChoose output data unit option.\n");//Taking user output choice.
     printf("1. Bits \t 2. Bytes\n3. Kilobytes \t 4. Megabytes\n5. Gigabytes \t 6. Terabytes\n7. Petabytes \t 8. Exabytes\n\t9. Go back\n--> ");
     scanf("%d", &choice_out);
+
+    if (choice_out > 9 || choice_out < 1) {
+    printf("Invalid choice. Try again?  y/n\n--> ");
+    scanf(" %c", &ch);
+    if(ch=='y')
+    goto Options;
+    else
+    return 0;
+    }
 
 /************************INPUT PROCESSING************************/
     if(choice_in==1)
@@ -421,21 +447,19 @@ int data()
 int temperature() {
     int choice;
     float temperature, result;
+    char ch;
     
-    printf("***************************\n");
-    printf("*** TEMPERATURE CONVERTER***\n");
-    printf("***************************\n\n");
+    printf("\n******************************");
+    printf("\n*** TEMPERATURE CONVERSION ***");
+    printf("\n******************************\n\n");
     
+    Options:
     printf("Choose conversion option:\n");
     printf("1. Celsius to Fahrenheit\n");
     printf("2. Fahrenheit to Celsius\n");
     printf("3. Go back\n");
     printf("\n--> ");
     scanf("%d", &choice);
-    
-    if(choice == 3) {
-        return 0;
-    }
     
     printf("\nEnter temperature value: ");
     scanf("%f", &temperature);
@@ -449,8 +473,16 @@ int temperature() {
             result = convertToCelsius(temperature);
             printf("%.2f Fahrenheit = %.2f Celsius\n", temperature, result);
             break;
+        case 3:
+            return 0;
+            break;
         default:
-            printf("Invalid choice. Try again.\n");
+            printf("Invalid choice. Try again. y/n\n");
+            scanf(" %c", &ch);
+            if(ch=='y')
+            goto Options;
+            else
+            return 0;
             break;
     }
     
@@ -463,16 +495,16 @@ int time() {
     char ch;
     float user_in, seconds, result;
 
-    printf("***************************\n");
-    printf("***   TIME CONVERSION   ***\n");
-    printf("***************************\n\n");
+    printf("\n***************************");
+    printf("\n***   TIME CONVERSION   ***");
+    printf("\n***************************\n\n");
 
 Options:
     printf("Choose input time unit option.\n");
     printf("1. Seconds \t 2. Minutes\n3. Hours \t 4. Days\n\t5. Go back\n\n--> ");
     scanf("%d", &choice_in);
 
-    if (choice_in > 5) {
+    if (choice_in > 5 || choice_in < 1) {
         printf("Invalid choice. Try again?  y/n\n-->");
         scanf(" %c", &ch);
         if (ch == 'y')
@@ -486,7 +518,7 @@ Options:
     printf("1. Seconds \t 2. Minutes\n3. Hours \t 4. Days\n\t5. Go back\n--> ");
     scanf("%d", &choice_out);
 
-    if (choice_out > 5) {
+    if (choice_out > 5 || choice_in < 1) {
         printf("Invalid choice. Try again?  y/n\n-->");
         scanf(" %c", &ch);
         if (ch == 'y')
