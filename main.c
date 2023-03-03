@@ -45,48 +45,64 @@ int main()
                 if(!mass()){
                 goto master;
                 }
+                else
+                goto exiting;
                 break;
 
             case 2:
                 if(!length()){
                 goto master;
                 }
+                else
+                goto exiting;
                 break;
 
             case 3:
                 if(!area()){
                 goto master;
                 }
+                else
+                goto exiting;
                 break;
 
             case 4:
                 if(!data()){
                 goto master;
                 }
+                else
+                goto exiting;
                 break;
 
             case 5:
                 if(!temperature()){
                 goto master;
                 }
+                else
+                goto exiting;
                 break;
 
             case 6:
                 if(!time()){
                 goto master;
                 }
+                else
+                goto exiting;
                 break;
 
             case 7:
                 if(!volume()){
                 goto master;
                 }
+                else
+                goto exiting;
                 break;
 
             case 8:
                 if(!speed()){
                 goto master;
                 }
+                else
+                goto exiting;
                 break;
 
             case 9:
@@ -211,6 +227,12 @@ int mass()
         printf("--> %f tons\n", result);
     }
 
+    printf("\nDo you wish to continue? y/n\n--> ");
+    scanf(" %c", &ch);
+
+    if(ch=='y')
+    return 0;
+    else
     return 1;
 }
 
@@ -318,7 +340,13 @@ int length()
         result = meters / 1000;
         printf("--> %f kilometers\n", result);
     }
-    
+
+    printf("\nDo you wish to continue? y/n\n--> ");
+    scanf(" %c", &ch);
+
+    if(ch=='y')
+    return 0;
+    else
     return 1;
 }
 
@@ -473,6 +501,12 @@ int area()
         printf("--> %f Acres\n", result);
     }
 
+    printf("\nDo you wish to continue? y/n\n--> ");
+    scanf(" %c", &ch);
+
+    if(ch=='y')
+    return 0;
+    else
     return 1;
 }
 
@@ -627,6 +661,12 @@ int data()
         printf("--> %f Exabytes\n", result);
     }
 
+    printf("\nDo you wish to continue? y/n\n--> ");
+    scanf(" %c", &ch);
+
+    if(ch=='y')
+    return 0;
+    else
     return 1;
 }
 
@@ -673,7 +713,13 @@ int temperature() {
             return 0;
             break;
     }
-    
+
+    printf("\nDo you wish to continue? y/n\n--> ");
+    scanf(" %c", &ch);
+
+    if(ch=='y')
+    return 0;
+    else
     return 1;
 }
 
@@ -749,6 +795,12 @@ int time() {
         printf("--> %f days\n", result);
     }
 
+    printf("\nDo you wish to continue? y/n\n--> ");
+    scanf(" %c", &ch);
+
+    if(ch=='y')
+    return 0;
+    else
     return 1;
 }
 
@@ -879,6 +931,12 @@ int volume()
         printf("--> %f Ounces(US)\n", result);
     }
 
+    printf("\nDo you wish to continue? y/n\n--> ");
+    scanf(" %c", &ch);
+
+    if(ch=='y')
+    return 0;
+    else
     return 1;
 }
 
@@ -1009,5 +1067,11 @@ int speed()
         printf("--> %f Mach\n", result);
     }
 
+    printf("\nDo you wish to continue? y/n\n--> ");
+    scanf(" %c", &ch);
+
+    if(ch=='y')
+    return 0;
+    else
     return 1;
 }
