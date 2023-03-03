@@ -107,7 +107,10 @@ int main()
 
             case 9:
             exiting:
-                printf("\nExiting program. Thank you for using!\n");
+                printf("\n**********************************");
+                printf("\n*****    EXITING PROGRAM     *****");
+                printf("\n*****  THANK YOU FOR USING!  *****");
+                printf("\n**********************************\n");
                 return 0;
 
             default:
