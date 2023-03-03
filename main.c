@@ -642,22 +642,22 @@ int temperature() {
     printf("\n*** TEMPERATURE CONVERSION ***");
     printf("\n******************************\n\n");
     
-    printf("Choose conversion option:\n");
+    printf("Choose conversion option:\n\n");
     printf("1. Celsius to Fahrenheit\n");
     printf("2. Fahrenheit to Celsius\n");
-    printf("3. Go back\n");
-    printf("\n--> ");
+    printf("3. Go back\n--> ");
     scanf("%d", &choice);
-    
-    printf("\nEnter temperature value: ");
-    scanf("%f", &temperature);
     
     switch(choice) {
         case 1:
+            printf("\nEnter temperature value: ");
+            scanf("%f", &temperature);
             result = convertToFahrenheit(temperature);
             printf("%.2f Celsius = %.2f Fahrenheit\n", temperature, result);
             break;
         case 2:
+            printf("\nEnter temperature value: ");
+            scanf("%f", &temperature);
             result = convertToCelsius(temperature);
             printf("%.2f Fahrenheit = %.2f Celsius\n", temperature, result);
             break;
@@ -683,14 +683,14 @@ int time() {
     char ch;
     float user_in, seconds, result;
 
-    Options:
+    Options: //Checkpoint for goto statement.
 
     printf("\n***************************");
     printf("\n***   TIME CONVERSION   ***");
     printf("\n***************************\n\n");
 
     printf("Choose input time unit option.\n");
-    printf("1. Seconds \t 2. Minutes\n3. Hours \t 4. Days\n\t5. Go back\n\n--> ");
+    printf("\n1. Seconds \t 2. Minutes\n3. Hours \t 4. Days\n\t5. Go back\n\n--> ");
     scanf("%d", &choice_in);
 
     if (choice_in > 5 || choice_in < 1) {
@@ -703,6 +703,8 @@ int time() {
     } else if (choice_in == 5)
         return 0;
 
+    Options_out: //Checkpoint for goto statement.
+
     printf("\nChoose output time unit option.\n");
     printf("1. Seconds \t 2. Minutes\n3. Hours \t 4. Days\n\t5. Go back\n\n--> ");
     scanf("%d", &choice_out);
@@ -711,11 +713,11 @@ int time() {
         printf("Invalid choice. Try again?  y/n\n--> ");
         scanf(" %c", &ch);
         if (ch == 'y')
-            goto Options;
+            goto Options_out;
         else
             return 0;
     } else if (choice_out == 5)
-        return 0;
+        goto Options;
 
     printf("\nEnter value in %s.\n--> ", choice_in == 1 ? "seconds" : choice_in == 2 ? "minutes" : choice_in == 3 ? "hours" : "days");
     scanf("%f", &user_in);
