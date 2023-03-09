@@ -708,7 +708,7 @@ int temperature() {
             return 0;
             break;
         default:
-            printf("Invalid choice. Try again. y/n\n");
+            printf("Invalid choice. Try again. y/n\n--> ");
             scanf(" %c", &ch);
             if(ch=='y')
             goto Options;
